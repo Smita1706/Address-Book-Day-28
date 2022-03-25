@@ -13,7 +13,7 @@ public class AddressBookData {
     public String state;
     public String zip;
 
-    public AddressBookData( String typeId, String firstName, String address,String lastName, String phoneNumber, String email, String city, String state, String zip) {
+    public AddressBookData( String typeId, String firstName,String lastName, String address,String phoneNumber, String email, String city, String state, String zip) {
         this.typeId = typeId;
         this.fname = firstName;
         this.lname = lastName;

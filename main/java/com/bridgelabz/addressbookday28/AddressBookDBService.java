@@ -58,7 +58,7 @@ public class AddressBookDBService {
 	                String typeId = resultSet.getString("type");
 	                String firstName = resultSet.getString("fname");
 	                String lastName = resultSet.getString("lname");
-	                String address = resultSet.getString("address");
+	               String address = resultSet.getString("address");
 	                String phoneNumber = resultSet.getString("phone");
 	                String email = resultSet.getString("email");
 	                String city = resultSet.getString("city");
@@ -104,5 +104,10 @@ public class AddressBookDBService {
 	        }catch (SQLException e) {
 	            throw new AddressBookException(e.getMessage(), AddressBookException.ExceptionType.DatabaseException);
 	        }
+	    }
+	    public List<AddressBookData> getAddressBookForDateRange(LocalDate startDate, LocalDate endDate) {
+	        String query = String.format("SELECT * FROM address_book WHERE date_added BETWEEN '%s' AND '%s';",
+	                Date.valueOf(startDate), Date.valueOf(endDate));
+	        return this.getAddressBookDataUsingDB(query);
 	    }
 }
